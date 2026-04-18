@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Amazone Studio | إخراج سينمائي - احترافية بصرية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: radial-gradient(circle at 10% 20%, #1a110b, #050302);
+            color: #f2e5d8;
+            direction: rtl;
+            padding: 1.5rem;
+        }
+        .container { max-width: 1400px; margin: 0 auto; }
+        @keyframes glowGold {
+            0% { box-shadow: 0 0 0px rgba(243,179,61,0.3); border-color: rgba(243,179,61,0.5);}
+            100% { box-shadow: 0 0 22px rgba(243,179,61,0.8); border-color: #f3b33d;}
+        }
+        .hero { text-align: center; margin-bottom: 2rem; }
+        .hero h1 { font-size: 3rem; background: linear-gradient(135deg, #f7c56e, #e09d2c); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        
+        /* معرض صور رمزية تعبر عن الاحترافية السينمائية */
+        .gallery-title { text-align: center; margin: 2rem 0 1rem; font-size: 1.8rem; }
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .grid-item {
+            background: linear-gradient(145deg, #2a1f18, #1a110c);
+            border-radius: 32px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid #f3b33d40;
+            cursor: pointer;
+        }
+        .grid-item:hover { transform: translateY(-8px); border-color: #f3b33d; box-shadow: 0 10px 25px rgba(243,179,61,0.3);}
+        .grid-icon { font-size: 4rem; color: #f3b33d; margin-bottom: 0.8rem; }
+        .grid-caption { font-weight: 700; font-size: 1.1rem; color: #f3e0cf; margin-top: 0.5rem; }
+        .grid-sub { font-size: 0.8rem; color: #bfa286; margin-top: 0.3rem; }
+
+        .packages-grid { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; margin: 2rem 0; }
+        .package-card {
+            background: rgba(25, 18, 14, 0.92); backdrop-filter: blur(8px); border-radius: 48px;
+            border: 1px solid rgba(243,179,61,0.5); padding: 1.5rem; width: 100%; max-width: 460px;
+            transition: 0.3s;
+        }
+        .package-card:hover { transform: translateY(-8px); animation: glowGold 1.5s infinite alternate; }
+        .card-header { font-size: 1.8rem; font-weight: 800; border-right: 5px solid #f3b33d; padding-right: 1rem; }
+        .price { font-size: 2rem; font-weight: 800; color: #f3b33d; margin: 0.5rem 0; }
+        .features-list li { margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px; list-style: none; }
+        .radio-group { background: #2e221b; padding: 0.7rem; border-radius: 32px; margin: 1rem 0; }
+        .radio-options { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+        .radio-options label { background: #1f1712; padding: 6px 14px; border-radius: 40px; cursor: pointer; }
+        .btn-select {
+            width: 100%; background: linear-gradient(95deg, #f3b33d, #e09d2c); border: none; padding: 12px 0;
+            font-family: 'Cairo'; font-weight: 800; font-size: 1.2rem; border-radius: 60px; color: #1f140e; cursor: pointer;
+            margin-top: 20px;
+        }
+        .booking-form { background: rgba(0,0,0,0.7); backdrop-filter: blur(12px); border-radius: 60px; padding: 2rem; margin: 1.5rem 0; border: 1px solid #f3b33d66; }
+        .form-row { display: flex; flex-wrap: wrap; gap: 1.2rem; margin-bottom: 1.2rem; }
+        .input-group { flex: 1; min-width: 200px; position: relative; }
+        .input-group input, .input-group textarea, .input-group select { width: 100%; padding: 12px 18px; border-radius: 50px; border: none; background: #2e241f; color: #fff3e8; font-family: 'Cairo'; font-size: 1rem; }
+        .suggest-btn { background: #f3b33d20; border: 1px solid #f3b33d; color: #f3b33d; padding: 5px 12px; border-radius: 40px; font-size: 0.75rem; cursor: pointer; display: inline-block; margin-top: 5px; }
+        .dropdown-suggest { position: absolute; background: #2e241f; border-radius: 28px; width: 100%; z-index: 200; display: none; border: 1px solid #f3b33d; }
+        .dropdown-suggest div { padding: 8px 15px; cursor: pointer; }
+        .dropdown-suggest div:hover { background: #f3b33d; color: #1f140e; }
+        .equipment-showcase { background: linear-gradient(115deg, #1e1611, #110d09); border-radius: 48px; padding: 1.5rem; text-align: center; margin: 1.5rem 0; }
+        .equip-items { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+        .equip-item { background: #2c201a; padding: 6px 18px; border-radius: 60px; font-weight: 600; }
+        .agreement-box { background: #1f1813; border-right: 6px solid #f3b33d; border-radius: 32px; padding: 1rem; margin: 1.5rem 0; }
+        .agreement-box label { display: flex; align-items: center; gap: 10px; cursor: pointer; font-weight: 600; }
+        .submit-booking { background: #f3b33d; width: 100%; padding: 16px; border-radius: 60px; font-weight: 800; font-size: 1.3rem; border: none; color: #1f140e; margin-top: 1rem; cursor: pointer; }
+        .popup-toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: #f3b33d; color: #1f140e; padding: 10px 24px; border-radius: 60px; font-weight: bold; z-index: 1000; display: flex; gap: 8px; }
+        @media (max-width:700px){ .hero h1{font-size:2rem;} .grid-icon{font-size:3rem;} }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="hero">
+        <h1><i class="fas fa-crown"></i> Amazone Studio <i class="fas fa-clapperboard"></i></h1>
+        <p>إخراج سينمائي | تصوير 4K | أحدث المعدات SONY A7III + DJI RS4</p>
+    </div>
+
+    <!-- معرض أيقونات وصور رمزية تعبر عن المعنى الصحيح للإخراج والمعدات -->
+    <div class="gallery-title"><i class="fas fa-camera"></i> احترافية الإخراج في استوديو أمازون</div>
+    <div class="image-grid">
+        <div class="grid-item">
+            <i class="fas fa-camera grid-icon"></i>
+            <div class="grid-caption">كاميرا SONY A7III</div>
+            <div class="grid-sub">تصوير 4K سينمائي - دقة Full Frame</div>
+        </div>
+        <div class="grid-item">
+            <i class="fas fa-grip-lines grid-icon"></i>
+            <div class="grid-caption">جيمبل DJI RS4 Pro</div>
+            <div class="grid-sub">ثبات احترافي ولقطات سينمائية سلسة</div>
+        </div>
+        <div class="grid-item">
+            <i class="fas fa-lightbulb grid-icon"></i>
+            <div class="grid-caption">إضاءات سينمائية</div>
+            <div class="grid-sub">تحسين المشهد - إضاءة دراماتيكية</div>
+        </div>
+        <div class="grid-item">
+            <i class="fas fa-film grid-icon"></i>
+            <div class="grid-caption">لقطات سينمائية</div>
+            <div class="grid-sub">مونتاج احترافي - تأثيرات سينما</div>
+        </div>
+    </div>
+
+    <div class="packages-grid">
+        <div class="package-card">
+            <div class="card-header"><i class="fas fa-video"></i> برومو سينمائي - دقيقتان</div>
+            <div class="price">7,000 ج.م</div>
+            <ul class="features-list"><li><i class="fas fa-check-circle"></i> 4K + برواز 50×70 + هدايا</li></ul>
+            <div class="radio-group"><p>نمط التصوير:</p><div class="radio-options"><label><input type="radio" name="videoStyle" value="رومانسي"> رومانسي</label><label><input type="radio" name="videoStyle" value="مثير"> مثير</label><label><input type="radio" name="videoStyle" value="كلاسيكي" checked> كلاسيكي</label></div></div>
+            <button class="btn-select" data-package="video" data-price="7000"><i class="fas fa-magic"></i> اختيار الباقة</button>
+        </div>
+        <div class="package-card">
+            <div class="card-header"><i class="fas fa-camera-retro"></i> تصوير فوتوغرافي شامل</div>
+            <div class="price">5,000 ج.م</div>
+            <ul class="features-list"><li><i class="fas fa-check-circle"></i> ألبوم + برواز 50×70 + فلاشة + مطبوعات 6×9</li></ul>
+            <div class="radio-group"><p>نمط فني احترافي</p></div>
+            <button class="btn-select" data-package="photo" data-price="5000"><i class="fas fa-camera"></i> اختيار الباقة</button>
+        </div>
+    </div>
+
+    <div class="booking-form">
+        <h3 style="text-align:center"><i class="fas fa-pen-alt"></i> بيانات الحجز & الاتفاقية</h3>
+        <div class="form-row">
+            <div class="input-group"><label>الاسم كاملاً *</label><input type="text" id="fullName" placeholder="مثال: نورا سامي"></div>
+            <div class="input-group"><label>معاد الفرح *</label><input type="date" id="weddingDate"></div>
+        </div>
+        <div class="form-row">
+            <div class="input-group"><label>رقم الهاتف 1 *</label><input type="tel" id="phone1" placeholder="01234567890"></div>
+            <div class="input-group"><label>رقم الهاتف 2</label><input type="tel" id="phone2" placeholder="اختياري"></div>
+        </div>
+        <div class="form-row">
+            <div class="input-group"><label>💰 مبلغ العربون (سيتم اقتراحه)</label><input type="number" id="downPayment" placeholder="مثلاً 1400"><div><small class="suggest-btn" id="suggestDownBtn"><i class="fas fa-magic"></i> اقتراح العربون (20%)</small></div></div>
+            <div class="input-group"><label>✏️ طلبات خاصة / اقتراحات إخراجية</label><textarea id="specialRequests" rows="2" placeholder="لقطات جوية، موسيقى..."></textarea><div><small class="suggest-btn" id="suggestIdeasBtn"><i class="fas fa-lightbulb"></i> اقتراح فكرة تصوير</small><div id="suggestDropdown" class="dropdown-suggest"><div data-suggest="تصوير سينمائي عند الغروب مع إضاءة طبيعية">🌅 تصوير عند الغروب</div><div data-suggest="لقطات درامية بطيئة مع موسيقى هادئة">🎬 لقطات درامية بطيئة</div><div data-suggest="استخدام الإضاءة الذهبية والفلتر السينمائي">✨ إضاءة ذهبية سينمائية</div></div></div></div>
+        </div>
+
+        <div style="background:#231e1a; border-radius: 40px; padding: 0.8rem; margin:1rem 0">
+            <p><strong>📦 الباقة المختارة:</strong> <span id="selectedPkgDisplay">لم يتم الاختيار</span> | <span id="videoStyleDetail"></span></p>
+            <p><strong>💰 السعر الإجمالي:</strong> <span id="selectedPriceDisplay">0</span> ج.م</p>
+        </div>
+
+        <!-- اتفاقية الإلغاء -->
+        <div class="agreement-box" id="agreementBox">
+            <h4><i class="fas fa-file-contract"></i> اتفاقية الإلغاء واسترداد العربون</h4>
+            <p style="margin: 10px 0;">📌 <strong>تنص الاتفاقية على:</strong><br>
+            ✅ في حال <strong>إلغاء الحجز قبل موعد الفرح بـ 30 يومًا أو أكثر</strong> (شهر كامل) يتم <strong>استرداد كامل مبلغ العربون</strong>.<br>
+            ❌ في حال <strong>إلغاء الحجز قبل الفرح بأقل من شهر (أقل من 30 يومًا)</strong> يتم <strong>خصم العربون بالكامل ولا يمكن استرداده</strong> تعويضًا للحجز والتحضيرات.<br>
+            *(يُحتسب تاريخ الإلغاء بناءً على إشعار خطي من العميل)*</p>
+            <label><input type="checkbox" id="agreeCancelPolicy"> <strong>أوافق على سياسة الإلغاء واسترداد العربون المذكورة أعلاه</strong></label>
+        </div>
+
+        <div class="equipment-showcase">
+            <h3><i class="fas fa-microchip"></i> العدّة المستخدمة في الإخراج السينمائي</h3>
+            <div class="equip-items"><div class="equip-item"><i class="fas fa-camera"></i> SONY A7III</div><div class="equip-item"><i class="fas fa-grip-lines"></i> DJI RS4 Pro</div><div class="equip-item"><i class="fas fa-lightbulb"></i> إضاءات سينمائية</div></div>
+            <p>كاميرا فول فريم + جيمبل احترافي + عدسات سينما 4K + إضاءة لتحسين المشهد</p>
+        </div>
+
+        <button id="sendWhatsappBtn" class="submit-booking"><i class="fab fa-whatsapp"></i> تأكيد الحجز وإرسال للواتساب</button>
+        <div id="statusMsg" style="margin-top: 12px; text-align: center;"></div>
+    </div>
+    <footer style="text-align:center; margin-top: 1rem;">✨ Amazone Studio - إخراج يحاكي أفلام هوليوود ✨</footer>
+</div>
+
+<script>
+    let activePackage = null, activePrice = 0, currentVideoStyle = "كلاسيكي";
+    const selectedPkgSpan = document.getElementById('selectedPkgDisplay');
+    const selectedPriceSpan = document.getElementById('selectedPriceDisplay');
+    const videoStyleDetailSpan = document.getElementById('videoStyleDetail');
+    const downPaymentInput = document.getElementById('downPayment');
+    const agreeCheckbox = document.getElementById('agreeCancelPolicy');
+    function showPopup(msg, icon="✨"){ let p=document.createElement('div'); p.className='popup-toast animate__animated animate__bounceInUp'; p.innerHTML=`<i class="fas ${icon==='✨'?'fa-star-of-life':'fa-check'}"></i> ${msg}`; document.body.appendChild(p); setTimeout(()=>{ p.remove(); },2500);}
+    function updateUI(){
+        if(activePackage === 'video'){
+            selectedPkgSpan.innerHTML='🎥 برومو سينمائي (دقيقتان 4K) + برواز 50×70 + هدايا';
+            selectedPriceSpan.innerText='7000';
+            let styleShow = (currentVideoStyle==='رومانسي')?'❤️ رومانسي':(currentVideoStyle==='مثير'?'🔥 مثير':'🎬 كلاسيكي');
+            videoStyleDetailSpan.innerHTML=`النمط: ${styleShow}`;
+            if(!downPaymentInput.value) downPaymentInput.value=1400;
+        } else if(activePackage === 'photo'){
+            selectedPkgSpan.innerHTML='📸 فوتوغرافي: ألبوم + برواز 50×70 + فلاشة + صور 6×9';
+            selectedPriceSpan.innerText='5000';
+            videoStyleDetailSpan.innerHTML='🖼️ نمط فني راقٍ';
+            if(!downPaymentInput.value) downPaymentInput.value=1000;
+        } else { selectedPkgSpan.innerHTML='لم تختار'; selectedPriceSpan.innerText='0';}
+    }
+    document.querySelectorAll('.btn-select').forEach(btn=>{
+        btn.addEventListener('click',()=>{
+            activePackage=btn.getAttribute('data-package');
+            activePrice=parseInt(btn.getAttribute('data-price'));
+            if(activePackage==='video'){ let selected=document.querySelector('input[name="videoStyle"]:checked'); if(selected) currentVideoStyle=selected.value; else currentVideoStyle="كلاسيكي";}
+            updateUI(); showPopup(`تم اختيار ${activePackage==='video'?'باقة البرومو':'الباقة الفوتوغرافية'}`, "🎬");
+            document.getElementById('bookingSection').scrollIntoView({behavior:'smooth'});
+        });
+    });
+    document.querySelectorAll('input[name="videoStyle"]').forEach(r=>{ r.addEventListener('change',()=>{ if(activePackage==='video'){ currentVideoStyle=r.value; updateUI(); showPopup(`تم تغيير النمط إلى ${currentVideoStyle}`,"🎨"); } }); });
+    document.getElementById('suggestDownBtn').addEventListener('click',()=>{ if(!activePackage){ showPopup("اختار باقة أولاً","⚠️"); return; } let val= activePackage==='video'?1400:1000; downPaymentInput.value=val; showPopup(`تم اقتراح العربون: ${val} ج.م (20%)`,"💰"); });
+    const suggestIdeasBtn=document.getElementById('suggestIdeasBtn'); const suggestDropdown=document.getElementById('suggestDropdown');
+    suggestIdeasBtn.addEventListener('click',(e)=>{ e.stopPropagation(); suggestDropdown.style.display = suggestDropdown.style.display==='block'?'none':'block'; });
+    document.querySelectorAll('#suggestDropdown div').forEach(div=>{ div.addEventListener('click',()=>{ document.getElementById('specialRequests').value=div.getAttribute('data-suggest'); suggestDropdown.style.display='none'; showPopup("تم إضافة الاقتراح","💡"); }); });
+    document.addEventListener('click',()=>{ if(suggestDropdown) suggestDropdown.style.display='none'; });
+
+    function sendToWhatsApp(){
+        const name=document.getElementById('fullName').value.trim();
+        const date=document.getElementById('weddingDate').value;
+        const ph1=document.getElementById('phone1').value.trim();
+        const ph2=document.getElementById('phone2').value.trim();
+        let down=downPaymentInput.value;
+        const special=document.getElementById('specialRequests').value.trim();
+        if(!name || !date || !ph1){ showPopup("أكمل الاسم والتاريخ والهاتف","⚠️"); return; }
+        if(!activePackage){ showPopup("اختر باقة أولاً","⚠️"); return; }
+        if(!agreeCheckbox.checked){ showPopup("يجب الموافقة على اتفاقية الإلغاء (استرداد العربون)","⚠️"); return; }
+        if(!down || down<=0) down = (activePackage==='video'?1400:1000);
+        let packageMsg="", styleMsg="";
+        if(activePackage==='video'){ packageMsg="🎬 باقة برومو سينمائي (دقيقتان 4K) + برواز 50×70 + هدايا استوديو"; styleMsg=`🎭 النمط: ${currentVideoStyle}`; }
+        else { packageMsg="📸 باقة فوتوغرافي: ألبوم فاخر + برواز 50×70 + فلاشة USB + صور مطبوعة 6×9"; styleMsg="🖼️ نمط فني احترافي"; }
+        const equipment="📷 المعدات: كاميرا SONY A7III، جيمبل DJI RS4، إضاءات سينمائية متطورة لتحسين المشهد.";
+        const cancelPolicyText="📋 *اتفاقية الإلغاء:* إذا تم الإلغاء قبل موعد الفرح بـ 30 يومًا أو أكثر، يتم استرداد كامل العربون. أما إذا تم الإلغاء قبل الفرح بأقل من شهر (أقل من 30 يومًا) فيتم خصم العربون بالكامل ولا يمكن استرداده.";
+        const instapay=`💸 تحويل العربون عبر إنستا باي: يمكنك تحويل مبلغ ${down} ج.م إلى رقم الهاتف/إنستا باي: 01061523008 (أمازون ستوديو) مع إرسال صورة الإيداع على نفس الرقم.`;
+        const finalMsg = `🟡 *طلب حجز جديد - استوديو أمازون* 🟡
+👤 الاسم: ${name}
+📅 تاريخ الفرح: ${date}
+📞 الهاتف1: ${ph1}
+📞 الهاتف2: ${ph2 || "—"}
+${packageMsg}
+${styleMsg}
+💰 السعر الإجمالي: ${activePrice} ج.م
+💵 مبلغ العربون المتفق عليه: ${down} ج.م
+✏️ الطلبات الخاصة: ${special || "لا توجد"}
+${equipment}
+${cancelPolicyText}
+${instapay}
+🎁 هدايا استوديو أمازون (برواز إضافي + هدايا رمزية)
+🔹 سيتم التواصل خلال 24 ساعة لتأكيد الحجز.`;
+        const encoded=encodeURIComponent(finalMsg);
+        window.open(`https://wa.me/201061523008?text=${encoded}`, '_blank');
+        showPopup("تم فتح الواتساب لإرسال الطلب مع الاتفاقية ✅","📲");
+    }
+    document.getElementById('sendWhatsappBtn').addEventListener('click', sendToWhatsApp);
+    updateUI();
+</script>
+</body>
+</html>
